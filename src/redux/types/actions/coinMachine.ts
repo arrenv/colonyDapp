@@ -6,6 +6,7 @@ import {
   UniqueActionType,
   ActionTypeWithMeta,
   MetaWithHistory,
+  UniqueActionTypeWithoutPayload,
 } from './index';
 
 export type CoinMachineActionTypes =
@@ -21,4 +22,16 @@ export type CoinMachineActionTypes =
   | ActionTypeWithMeta<
       ActionTypes.COIN_MACHINE_BUY_TOKENS_SUCCESS,
       MetaWithHistory<object>
+    >
+  | UniqueActionType<
+      ActionTypes.COIN_MACHINE_PERIOD_UPDATE,
+      {
+        colonyAddress: Address;
+      },
+      object
+    >
+  | ErrorActionType<ActionTypes.COIN_MACHINE_PERIOD_UPDATE_ERROR, object>
+  | UniqueActionTypeWithoutPayload<
+      ActionTypes.COIN_MACHINE_PERIOD_UPDATE_SUCCESS,
+      object
     >;

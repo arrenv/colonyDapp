@@ -186,14 +186,14 @@ const RemainingDisplayWidget = ({
     return false;
   }, [periodTokens]);
 
-  // useEffect(() => {
-  //   if (timeLeft === 0) {
-  //     dispatch({
-  //       type: ActionTypes.COIN_MACHINE_PERIOD_UPDATE,
-  //       payload: { colonyAddress },
-  //     });
-  //   }
-  // }, [timeLeft, colonyAddress, dispatch]);
+  useEffect(() => {
+    if (timeLeft === 0 && colonyAddress !== undefined) {
+      dispatch({
+        type: ActionTypes.COIN_MACHINE_PERIOD_UPDATE,
+        payload: { colonyAddress },
+      });
+    }
+  }, [timeLeft, colonyAddress, dispatch]);
 
   return (
     <div className={getMainClasses(appearance, styles)}>
