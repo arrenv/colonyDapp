@@ -33,3 +33,11 @@ query CoinMachineSalePeriod($colonyAddress: String!) {
     timeRemaining
   }
 }
+
+query CurrentPeriodTokens($colonyAddress: String!) {
+  currentPeriodTokens(colonyAddress: $colonyAddress) @client {
+    maxPerPeriodTokens
+    activeSoldTokens
+    targetPerPeriodTokens
+  }
+}
