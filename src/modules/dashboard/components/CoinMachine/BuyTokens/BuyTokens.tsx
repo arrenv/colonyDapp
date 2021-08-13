@@ -127,7 +127,7 @@ const BuyTokens = ({ colony: { colonyAddress }, disabled }: Props) => {
 
   const isUserApproved = whitelistPolicyData?.whitelistPolicy?.userIsApproved;
   /* Wire in is sale started logic */
-  const isSale = false;
+  const isSale = true;
   const { data: userTokenData, loading: loadingUserToken } = useUserTokensQuery(
     {
       variables: { address: walletAddress },

@@ -26,6 +26,7 @@ const useSplitTime = (
 
   return {
     splitTime,
+    timeLeft,
   };
 };
 
