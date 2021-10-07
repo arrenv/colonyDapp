@@ -90,6 +90,7 @@ export const ACTION_TYPES_ICONS_MAP: {
   [ColonyMotions.ColonyEditMotion]: 'emoji-edit-tools',
   [ColonyMotions.EditDomainMotion]: 'emoji-pencil-note',
   [ColonyMotions.SetUserRolesMotion]: 'emoji-crane',
+  [ColonyMotions.EmitDomainReputationPenaltyMotion]: 'emoji-firebolt',
   [ColonyActions.Generic]: 'circle-check-primary',
 };
 
@@ -141,6 +142,7 @@ export const ACTIONS_EVENTS: ActionsEventsMap = {
   [ColonyMotions.SetUserRolesMotion]: MOTION_EVENTS,
   [ColonyMotions.PaymentMotion]: MOTION_EVENTS,
   [ColonyMotions.MoveFundsMotion]: MOTION_EVENTS,
+  [ColonyMotions.EmitDomainReputationPenaltyMotion]: MOTION_EVENTS,
 };
 
 /*
@@ -243,5 +245,10 @@ export const DETAILS_FOR_ACTION: ActionsDetailsMap = {
     ActionPageDetails.Domain,
     ActionPageDetails.ToRecipient,
     ActionPageDetails.Permissions,
+  ],
+  [ColonyMotions.EmitDomainReputationPenaltyMotion]: [
+    ActionPageDetails.Domain,
+    ActionPageDetails.ToRecipient,
+    ActionPageDetails.ReputationPenalty,
   ],
 };
