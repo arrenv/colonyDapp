@@ -13,6 +13,10 @@ export default gql`
     networkId: Int
   }
 
+  input ToBlockInput {
+    number: Int
+  }
+
   input EventsFilter {
     associatedColony_contains: String
     associatedColony: String
@@ -346,7 +350,10 @@ export default gql`
       blockNumber: Int!
       colonyAddress: String!
     ): Int!
-    recoveryAllEnteredEvents(colonyAddress: String!): [ParsedEvent!]!
+    recoveryAllEnteredEvents(
+      colonyAddress: String!
+      currentBlock: Int!
+    ): [ParsedEvent!]!
     legacyNumberOfRecoveryRoles(colonyAddress: String!): Int!
     whitelistedUsers(colonyAddress: String!): [User!]!
     motionTimeoutPeriods(
@@ -499,6 +506,7 @@ export default gql`
       orderDirection: String!
     ): [SubgraphColony!]!
     processedColony(address: String!): ProcessedColony!
+    block(id: String!): SubgraphBlock
   }
 
   #
