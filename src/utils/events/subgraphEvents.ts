@@ -241,6 +241,7 @@ export const sortSubgraphEventByIndex = (
    on the subgraph yet and we need the events within it */
 export const waitForBlockToExist = (
   handleRefetch: () => Promise<ApolloQueryResult<any>>,
+  waitingTime = 1000,
 ) => {
   return new Promise((resolve) =>
     setTimeout(async () => {
@@ -248,6 +249,6 @@ export const waitForBlockToExist = (
       if (data) {
         resolve(true);
       }
-    }, 1000),
+    }, waitingTime),
   );
 };
